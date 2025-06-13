@@ -20,7 +20,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
 // Health Check
 app.get("/api/health", (_:Request, res: Response) => {
-  res.status(401).set('Content-Type', 'text').json({ status: "ok" });
+  res.status(401).set('Content-Type', 'text/html').json({ status: "ok" });
 })
 
 app.get("/", (_, res) => {
