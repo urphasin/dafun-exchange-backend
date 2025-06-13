@@ -30,7 +30,7 @@ Ans: A database is a system for storing and querying data
       }
       Each key (username, email, rating) is a field, and its corresponding value is the field’s data.
     ```
-    - A table/collection 
+    - A table/collection
 
 
 **🧠 Analogy:** A database is like a spreadsheet.  
