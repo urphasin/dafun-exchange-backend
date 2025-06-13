@@ -20,12 +20,37 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
 // Health Check
 app.get("/api/health", (_:Request, res: Response) => {
-  res.status(401).set('Content-Type', 'text/html').json({ status: "ok" });
+  res.status(401).set('Content-Type', 'application/json').json({ status: "ok" });
 })
 
+// Home Page
 app.get("/", (_, res) => {
   res.send("Dafurn Exchange Backend Running in TypeScript");
 });
+
+// Get all users
+app.get("/api/users", async (_req: Request, res: Response) => {
+  const users = await User.find();
+  res.set("Content-Type", "text/html").json(users);
+});
+
+// Get one user
+app.get("/api/users/:id", async (_req: Request, res: Response) => {
+  const user = await User.findById(_req.params.id);
+});
+
+// Update user rating
+app.put("/api/users/:id", async (_req: Request, res: Response) => {
+  const user = await User.findByIdAndUpdate(_req.params.id, { rating: _req.body.rating }, { new: true });
+  res.json(user);
+});
+
+// Delete a user
+app.delete("/api/users/:id", async (_req: Request, res: Response) => {
+  await User.findByIdAndDelete(_req.params.id);
+  res.status(204).send();
+});
+
 
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
