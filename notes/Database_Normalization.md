@@ -87,4 +87,21 @@ You just have to manage the **tradeoff between speed and consistency**.
 
 ---
 
+```sql
+db.students.aggregate([
+  {
+    $match: { name: "Otito" }
+  },
+  {
+    $lookup: {
+      from: "classes",
+      localField: "class_ids",
+      foreignField: "_id",
+      as: "enrolled_classes"
+    }
+  }
+])
+
+```
+
 *Want help deciding how to model something you're working on?*

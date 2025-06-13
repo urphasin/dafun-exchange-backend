@@ -8,6 +8,8 @@ export interface IUser extends Document {
   bio: string;
   rating: number;
   email: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 // 2. Create the Mongoose schema
