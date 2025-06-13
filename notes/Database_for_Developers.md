@@ -10,7 +10,7 @@ Ans: A database is a system for storing and querying data
   - Ans: We use a database to query large amount of data
 - Learn what a **record**, **field**, **table/collection**, and **ID** are.
   - Ans:
-    - A record is a single entry of items in a database. A row in a spreadsheet.
+    - A record/document is a single entry of items in a database. A row in a spreadsheet.
     ```
       {
         "_id": "664c23f1...",
