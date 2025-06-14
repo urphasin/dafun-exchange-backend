@@ -40,6 +40,7 @@ app.get("/api/users", async (_req: Request, res: Response) => {
 // Get one user
 app.get("/api/users/:id", async (_req: Request, res: Response) => {
   const user = await User.findById(_req.params.id);
+  res.json(user);
 });
 
 // Update user rating
