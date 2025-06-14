@@ -20,7 +20,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
 // Health Check
 app.get("/api/health", (_:Request, res: Response) => {
-  res.status(401).set('Content-Type', 'application/json').json({ status: "ok" });
+  res.status(200).set('Content-Type', 'html').json({ status: "ok" });
 })
 
 // Home Page
@@ -31,7 +31,7 @@ app.get("/", (_, res) => {
 // Get all users
 app.get("/api/users", async (_req: Request, res: Response) => {
   const users = await User.find();
-  res.set("Content-Type", "text/html").json(users);
+  res.set("Content-Type", "application/json").json(users);
 });
 
 // Get one user
