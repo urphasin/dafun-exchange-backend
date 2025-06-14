@@ -4,11 +4,14 @@ import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import dotenv from "dotenv";
 import User from './models/User';
+import cors from "cors";
+
 
 dotenv.config(); // Load .env variables
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 
 // Connect to MongoDB
